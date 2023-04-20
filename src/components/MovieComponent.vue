@@ -1,8 +1,12 @@
 <script>
 import { state } from '../state';
+import LanguageComponent from './LanguageComponent.vue';
 
 export default {
     name: 'MovieComponent',
+    components: {
+        LanguageComponent,
+    },
     props: {
         movie: Object,
     },
@@ -16,10 +20,11 @@ export default {
 
 <template>
     <div class="card col">
-        <img class="card-img h-100" :src="movie.poster_path">
+        <img class="card-img h-100" :src="`${state.posterBaseApi}${movie.poster_path}`">
         <div class="card-body movie-infos">
             <h3> {{ movie.title }} </h3>
             <h5> {{ movie.original_title }} </h5>
+            <LanguageComponent></LanguageComponent>
             <p>Language: {{ movie.original_language }} </p>
             <p>Rating: {{ movie.vote_average }}</p>
         </div>
@@ -28,4 +33,9 @@ export default {
 
 
 <style lang="scss" scoped>
+
+
+.card-img {
+    object-fit: cover;
+}
 </style>

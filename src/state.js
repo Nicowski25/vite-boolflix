@@ -5,6 +5,7 @@ export const state = new reactive({
     API_Key: '875a9a029ad1f857a563b3db65a0f4a3',
     searchMovieUrl: 'https://api.themoviedb.org/3/search/movie',
     searchTvSeriesUrl: "https://api.themoviedb.org/3/search/tv",
+    posterBaseApi: 'https://image.tmdb.org/t/p/w342',
     searchText: '',
     searchedMoviesResults: [],
     searchedSeriesResults: [],
