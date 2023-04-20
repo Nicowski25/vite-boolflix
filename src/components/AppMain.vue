@@ -22,7 +22,7 @@ export default {
 
     <div class="movies container">
         <div class="row row-cols-md-3 g-4">
-            <MovieComponent v-for="result in state.searchResults"></MovieComponent>
+            <MovieComponent v-for="result in state.searchResults" :result="result"></MovieComponent>
         </div>
     </div>
 

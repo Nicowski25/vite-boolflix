@@ -3,6 +3,9 @@ import { state } from '../state';
 
 export default {
     name: 'MovieComponent',
+    props: {
+        result: Object,
+    },
     data() {
         return {
             state
