@@ -1,7 +1,11 @@
 <script>
 import { state } from '../state'
+import SearchComponent from './SearchComponent.vue'
 export default {
     name: 'AppHeader',
+    components: {
+        SearchComponent
+    },  
     data() {
         return {
             state
@@ -10,7 +14,7 @@ export default {
 }
 </script>
 <template>
-    <div id="appheader" class="container-fluid py-3">
+    <div id="appheader" class="container-fluid py-2">
         <div class="left-header">
             <h1>BOOLFLIX</h1>
             <ul>
@@ -24,8 +28,10 @@ export default {
         </div>
         <div class="right-header">
             <ul>
-                <li><font-awesome-icon icon="fa-solid fa-magnifying-glass" /></li>
-                <li><font-awesome-icon icon="fa-solid fa-bell" /></li>
+                <li class="p-0">
+                    <SearchComponent></SearchComponent>
+                </li>
+                <li><font-awesome-icon icon="fa-solid fa-bell"/></li>
                 <img :src="state.userImage" alt="" class="p-2">
             </ul>
         </div>
@@ -34,6 +40,7 @@ export default {
 
 
 <style lang="scss" scoped>
+
 #appheader {
     color: #fff;
     display: flex;
@@ -67,4 +74,5 @@ ul {
         color: #b3b3b3;
     }
 }
+
 </style>

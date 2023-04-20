@@ -19,7 +19,7 @@ export default {
 </script>
 
 <template>
-    <div class="card col">
+    <div class="card col text-light">
         <img class="card-img h-100" :src="`${state.posterBaseApi}${movie.poster_path}`">
         <div class="card-body movie-infos">
             <h3> {{ movie.title }} </h3>
@@ -36,10 +36,12 @@ export default {
 <style lang="scss" scoped>
 .card {
     padding: 0;
+    border: 3px solid #141414;
     .card-img {
         object-fit: cover;
     }
     .card-body {
+        background-color: #1f1f1ff1;
         padding: 1rem;
     }
 }
