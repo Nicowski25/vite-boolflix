@@ -27,15 +27,21 @@ export default {
             <LanguageComponent></LanguageComponent>
             <p>Language: {{ movie.original_language }} </p>
             <p>Rating: {{ movie.vote_average }}</p>
+
         </div>
     </div>
 </template>
 
 
 <style lang="scss" scoped>
-
-
-.card-img {
-    object-fit: cover;
+.card {
+    padding: 0;
+    .card-img {
+        object-fit: cover;
+    }
+    .card-body {
+        padding: 1rem;
+    }
 }
+
 </style>
