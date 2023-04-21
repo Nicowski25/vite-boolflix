@@ -11,6 +11,8 @@ export const state = new reactive({
     searchedSeriesResults: [],
     loading: true,
     userImage: 'http://occ-0-2968-784.1.nflxso.net/dnm/api/v6/K6hjPJd6cR6FpVELC5Pd6ovHRSk/AAAABVgp2zLeE01RTJW9KkYaPPej9DVNvfrLbAKrN7ih5RFS-HAjAPh-PMssBmKcLc60VEnsnBcj6bbU7xpXd6CpVu9egHNMts4.png?r=424',
+    
+    /* returns an array of movies objects searched in the db */
     fetchMovies() {
         if (this.searchText === '') {
             return
@@ -29,6 +31,8 @@ export const state = new reactive({
             })
         }
     },
+
+    /* returns an array of tvseries objects searched in the db */
     fetchTvSeries() {
         if (this.searchText === '') {
             return
@@ -47,7 +51,5 @@ export const state = new reactive({
             })
         }
     },
-    convertRating(rating) {
-        return Math.round(Number(rating) * 5 / 10)
-    }
+
 })

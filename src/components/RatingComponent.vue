@@ -12,6 +12,7 @@ export default {
         }
     },
     methods: {
+        /* set the rating rounded to 1-5 and print the stars */
         ratingCount(rating) {
             let vote = Math.round(rating * 5 / 10)
             let stars = []

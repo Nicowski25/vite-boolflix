@@ -15,6 +15,8 @@ export default {
 </script>
 <template>
     <div id="appheader" class="container-fluid py-2">
+
+        <!-- left header -->
         <div class="left-header">
             <h1>BOOLFLIX</h1>
             <ul>
@@ -26,12 +28,15 @@ export default {
                 <li>My List</li>
             </ul>
         </div>
+
+        <!-- right header -->
         <div class="right-header">
             <ul>
                 <li class="p-0">
                     <SearchComponent></SearchComponent>
                 </li>
                 <li><font-awesome-icon icon="fa-solid fa-bell"/></li>
+                <!-- user image -->
                 <img :src="state.userImage" alt="" class="p-2">
             </ul>
         </div>
