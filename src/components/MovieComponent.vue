@@ -12,7 +12,19 @@ export default {
     },
     data() {
         return {
-            state
+            state,
+            flags: ['it', 'en']
+        }
+    },
+    methods: {
+        is_a_flag(lang_code) {
+            if (this.flags.includes(lang_code)) {
+                return true
+            } 
+            return false
+        },
+        getImagePath(lang_code){
+            return new URL(`./assets/img/${lang_code}.svg`)
         }
     }
 }
@@ -24,8 +36,12 @@ export default {
         <div class="card-body movie-infos">
             <h3> {{ movie.title }} </h3>
             <h5> {{ movie.original_title }} </h5>
-            <LanguageComponent></LanguageComponent>
-            <p>Language: {{ movie.original_language }} </p>
+
+            <img width="20px" v-if="is_a_flag(movie.original_language)" :src="getImagePath(movie.original_language)" alt="">
+            <span v-else>
+                <strong>Language: {{ movie.original_language }} </strong>
+            </span>
+
             <p>Rating: {{ movie.vote_average }}</p>
 
         </div>
