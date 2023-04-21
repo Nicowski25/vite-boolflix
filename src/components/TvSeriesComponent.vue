@@ -1,8 +1,16 @@
 <script>
 import { state } from '../state';
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+import LanguageComponent from './LanguageComponent.vue';
+import RatingComponent from './RatingComponent.vue';
 
 export default {
     name: 'TvSeriesComponent',
+    components: {
+    LanguageComponent,
+    FontAwesomeIcon,
+    RatingComponent,
+    },
     props: {
         tvSerie: Object
     },
@@ -20,14 +28,33 @@ export default {
             <h3> {{ tvSerie.name }} </h3>
             <h5> {{ tvSerie.original_name }} </h5>
             <p>Language: {{ tvSerie.original_language }} </p>
-            <p>Rating: {{ tvSerie.vote_average }} </p>
+
+            <RatingComponent :movie="tvSerie"></RatingComponent>
+
         </div>
     </div>
 </template>
 
 
 <style lang="scss" scoped>
-.card-img {
-    object-fit: cover;
+
+h1 {
+    font-weight: 700;
+}
+.card {
+    padding: 0;
+    border: 3px solid #141414;
+    .card-img {
+        object-fit: cover;
+    }
+    .card-body {
+        background-color: #1f1f1ff1;
+        padding: 1rem;
+    }
+}
+
+ul {
+    list-style: none;
+    padding: 0;
 }
 </style>

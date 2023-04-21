@@ -1,11 +1,15 @@
 <script>
 import { state } from '../state';
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import LanguageComponent from './LanguageComponent.vue';
+import RatingComponent from './RatingComponent.vue';
 
 export default {
     name: 'MovieComponent',
     components: {
-        LanguageComponent,
+    LanguageComponent,
+    FontAwesomeIcon,
+    RatingComponent,
     },
     props: {
         movie: Object,
@@ -13,7 +17,7 @@ export default {
     data() {
         return {
             state,
-            flags: ['it', 'en']
+            flags: ['it', 'en','de']
         }
     },
     methods: {
@@ -24,9 +28,17 @@ export default {
             return false
         },
         getImagePath(lang_code){
-            return new URL(`./assets/img/${lang_code}.svg`)
-        }
-    }
+            return new URL(`./assets/img/${lang_code}.svg`, import.meta.url).href
+        },
+        ratingCount(rating) {
+            let vote = Math.round(rating * 5 / 10)
+            let stars = []
+            for (let i = 0; i < vote; i++) {
+                stars.push('fa-star fa-solid')
+            }
+            return stars
+        }  
+    },
 }
 </script>
 
@@ -42,7 +54,8 @@ export default {
                 <strong>Language: {{ movie.original_language }} </strong>
             </span>
 
-            <p>Rating: {{ movie.vote_average }}</p>
+
+            <RatingComponent :movie="movie"></RatingComponent>
 
         </div>
     </div>
@@ -60,6 +73,11 @@ export default {
         background-color: #1f1f1ff1;
         padding: 1rem;
     }
+}
+
+ul {
+    list-style: none;
+    padding: 0;
 }
 
 </style>
